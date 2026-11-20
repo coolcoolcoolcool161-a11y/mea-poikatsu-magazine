@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mea-poikatsu-magazine.pages.dev/sitemap.xml

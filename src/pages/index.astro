@@ -1,0 +1,139 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import AdSlot from '../components/AdSlot.astro';
+import { SITE, CATEGORIES, CATEGORY_NAMES, MAGAZINE_ORDER, ARTICLE_NUMBERS, BENEFIT_RANKING, FAQS, SISTER_BLOGS, slugOf } from '../data/site';
+
+const articles = await getCollection('articles');
+const bySlug = new Map(articles.map((a) => [slugOf(a.id), a]));
+// 旧サイトの特集記事の並び（ARTICLE 01〜19）に並べる
+const ordered = MAGAZINE_ORDER.map((s) => bySlug.get(s)!).filter(Boolean);
+const cover = bySlug.get('freecash')!;
+const byCategory = (slug: string) => articles.filter((a) => a.data.category === slug);
+
+const itemList = ordered.map((a, i) => ({
+  '@type': 'ListItem',
+  position: i + 1,
+  name: `ARTICLE ${ARTICLE_NUMBERS[slugOf(a.id)]} ${a.data.service} ${a.data.code ? `紹介コード ${a.data.code}` : ''} ${a.data.benefit}`,
+}));
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      name: 'メアのポイ活マガジン｜紹介コード・招待コード特集号',
+      description: SITE.description,
+      inLanguage: 'ja',
+      dateModified: SITE.dateModified,
+    },
+    { '@type': 'ItemList', name: 'ポイ活マガジン 特集記事一覧', numberOfItems: 19, itemListElement: itemList },
+    {
+      '@type': 'FAQPage',
+      mainEntity: FAQS.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'ポイ活マガジン トップ' },
+      ],
+    },
+  ],
+};
+
+const title = 'メアのポイ活マガジン｜紹介コード・招待コード特集号';
+---
+
+<BaseLayout title={title} description={SITE.description} canonicalPath="/" jsonLd={jsonLd}>
+  <div class="wrap">
+    <div class="hero">
+      <img src="/images/hero.jpg" alt="ピンクの背景でメアがポイ活×招待コード×紹介系をお届けするバナー（一緒におトクをGETしよう♡）" width="1179" height="393" />
+    </div>
+
+    <div class="pr-box">
+      このページは広告（PR）を含みます。掲載している紹介リンク・紹介コードを使って各サービスに登録し、所定の条件を満たすと、メア（紹介者）に、各サービスの運営会社から紹介報酬が支払われる場合があります。紹介報酬が発生しても、あなたの特典が減ったり、利用料金が上乗せされたりすることはないので安心してね。仕組みと対象範囲は<a href="/ad-disclosure/">「広告・紹介報酬に関する表記」</a>にまとめています。
+    </div>
+
+    <p class="article-meta">2026年11月号／最終更新：2026年11月19日／特典額・条件は各サービスの紹介キャンペーン内容をもとに掲載しているよ♪ キャンペーンは予告なく変更・終了する場合があるから、登録前に公式ページもチェックしてね💡</p>
+
+    <h1>メアのポイ活マガジン｜紹介コード・招待コード特集号💖</h1>
+    <p class="lead">
+      こんにちは、メアです💖 ポイ活大好きなメアが、お得な紹介コードをぎゅっと集めたよ🎀 一緒におトクをGETしよっ✨ 今号は<strong>特集：紹介コードで始めるポイ活 全19サービス</strong>。紹介コードをひとつ使うだけで、登録特典がぐっと増える19サービスを総力特集したよ✨
+    </p>
+
+    <AdSlot />
+
+    <h2 id="cover">💖 表紙特集 ─ COVER STORY</h2>
+    <p>いま一番アツい「Freecash」をメアが徹底解剖しちゃうよ✨ ゲームで遊んで<strong>約1,430円相当</strong>🎮</p>
+    <ServiceCard article={cover} showBody={true} />
+
+    <h2 id="articles">特集記事一覧 ─ FEATURE ARTICLES</h2>
+    <p>全19サービスを1記事ずつ紹介していくよ💕 気になる記事はコードをコピーして、そのまま登録しちゃってね♪ 各記事の「原文を読む」では、紹介文そのものも載せているよ。</p>
+    <div class="card-grid">
+      {ordered.map((a) => (
+        <div class="magazine-item">
+          <p class="article-no">ARTICLE {ARTICLE_NUMBERS[slugOf(a.id)]}｜{CATEGORY_NAMES[a.data.category] ?? a.data.category}</p>
+          <ServiceCard article={a} />
+        </div>
+      ))}
+    </div>
+
+    <AdSlot />
+
+    <h2 id="ranking">特典ランキング ─ BENEFIT RANKING</h2>
+    <p>特典額の大きい順に並べた早見表だよ🏆 詳しい条件は各記事で確認してね♪</p>
+    <table class="ranking-table">
+      <thead>
+        <tr><th>順位</th><th>サービス</th><th>特典</th><th>主な条件</th></tr>
+      </thead>
+      <tbody>
+        {BENEFIT_RANKING.map((r) => (
+          <tr>
+            <td>{r.rank}</td>
+            <td><a href={`/articles/${r.slug}/`}>{r.service}</a></td>
+            <td>{r.benefit}</td>
+            <td>{r.condition}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+
+    <h2 id="faq">よくある質問 ─ FAQ</h2>
+    {FAQS.map((f) => (
+      <div class="faq-item">
+        <h3>{f.q}</h3>
+        <p>{f.a}</p>
+      </div>
+    ))}
+    <p><a href="/faq/">よくある質問の一覧を見る →</a></p>
+
+    <h2 id="sisters">姉妹ブログ ─ SISTER BLOGS</h2>
+    <p>同じ紹介コードを、違う切り口・違う使い方で紹介している姉妹ブログだよ📚 お好みのスタイルで読んでみてね♡</p>
+    <ul>
+      {SISTER_BLOGS.map((b) => (
+        <li><a href={b.url} target="_blank" rel="noopener">{b.name}</a>：{b.note}</li>
+      ))}
+    </ul>
+
+    <h2>📂 カテゴリー</h2>
+    <ul>
+      {CATEGORIES.map((c) => (
+        <li><a href={`/categories/${c.slug}/`}>{c.name}</a>（{byCategory(c.slug).length}）</li>
+      ))}
+    </ul>
+
+    <h2>🌐 全媒体の入口</h2>
+    <p><a href={SITE.hubUrl} target="_blank" rel="noopener">メアのポイ活メディア（トップページ）</a> — ホームページ・ブログ・掲示板・note・Xなど、メアの媒体はここからたどれます♪</p>
+
+    <h2>🎀 このポイ活マガジンについて</h2>
+    <p>ポイ活大好きなメアが、実際に使っている紹介コードだけを雑誌の特集記事のようにまとめたマガジンだよ💖 特典額や条件が変わったら随時更新していくね♪</p>
+    <p><a href="/about/">運営者情報を見る →</a></p>
+
+    <AdSlot />
+  </div>
+</BaseLayout>
