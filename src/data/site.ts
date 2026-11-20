@@ -3,14 +3,14 @@
 export const SITE = {
   name: 'ポイ活マガジン',
   operator: 'メア',
-  siteUrl: 'https://mea-poikatsu-magazine.pages.dev',
+  siteUrl: 'https://coolcoolcoolcool161-a11y.github.io/mea-poikatsu-magazine',
   description:
     'メアのポイ活マガジン｜ワラウ・ハピタス・モッピー・Freecash・TikTokなど全19サービスの紹介コード・招待コードを特集記事で読む。2026年11月号。',
   dateModified: '2026-11-19',
   gaMeasurementId: '',
   xAccount: 'https://x.com/pppppuririn',
   hubUrl:
-    'https://muse.ai/s/musezong-he-medeia-pr6xcxtfrplwxt/NPnupwzcqqtYUBN_-w0KoHvF5cDIBSAOBo4Nt8ve-5o',
+    'https://coolcoolcoolcool161-a11y.github.io/mea-poikatsu-media/',
 } as const;
 
 // Astro 5ではcontent collectionのentry.idに拡張子（.md）が付くため、URL用スラッグに変換する
@@ -85,32 +85,32 @@ export const BENEFIT_RANKING = [
   { rank: '13', service: 'オリくじ', benefit: '両方プレゼント', condition: '登録時に招待コード入力', slug: 'orikuji' },
 ] as const;
 
-// 姉妹ブログ（旧サイトの「姉妹ブログ」5件。旧muse.ai URL。姉妹サイトの移行が完了したら新pages.dev URLに更新する）
+// 姉妹ブログ（旧サイトの「姉妹ブログ」5件。旧muse.ai URL。2026-11-21にGitHub Pagesの新URLへ更新済み）
 export const SISTER_BLOGS = [
   {
     name: 'ポイ活ブログ',
     note: '総合版だよ。特選バナーとカテゴリ別カードで全サービスを網羅するメインブログなの♪',
-    url: 'https://muse.ai/s/poihuo-burogu-xlxi6xcxsxg4ghx07/74yi0ejxEmcRwO9Gsp15bpRovm76_UruhoA3biG-N2o',
+    url: 'https://coolcoolcoolcool161-a11y.github.io/mea-poikatsu-blog/',
   },
   {
     name: '紹介コードランキング',
     note: '特典額のランキング形式で比較しながら選べる、順位重視のブログだよ🏆',
-    url: 'https://muse.ai/s/shao-jie-kodorankingu-jxj6xcxsxfxqxj6xqx0/OqiA00u9xkaSI9_7bBwCrskhhMRQu3SkOvHqtDonW84',
+    url: 'https://coolcoolcoolcool161-a11y.github.io/mea-ranking/',
   },
   {
     name: 'ポイ活コード検索',
     note: 'サービス名で検索して、紹介コードだけを素早く見つけられる検索特化ブログだよ🔍',
-    url: 'https://muse.ai/s/poihuo-kodojian-suo-hb6xcxsxg20qsxl/6jl8s6igC6cBHibzVwCEADiLunryhUT0jRZr_pVQrQE',
+    url: 'https://coolcoolcoolcool161-a11y.github.io/mea-code-search/',
   },
   {
     name: 'かんたん紹介コード案内',
     note: '初めての人向けに、手順をかんたんに案内するやさしいブログだよ🌸',
-    url: 'https://muse.ai/s/kantanshao-jie-kodoan-nei-sb6xcxsxgtxkxkbk/iHPHnEFAX37Hrni_FagP81wlqfSoecaEv0cODGcaaS8',
+    url: 'https://coolcoolcoolcool161-a11y.github.io/mea-kantan-guide/',
   },
   {
     name: 'ゲームポイ活ブログ',
     note: 'Freecashなどゲームで貯めるポイ活を中心に紹介するゲーム特化ブログだよ🎮',
-    url: 'https://muse.ai/s/gemupoihuo-burogu-gxi6xcxsxgpf18xc/dc3zg6z-_dnAhCoD7Nkbu9w9wGj0ytBYpNWuVBeOS-I',
+    url: 'https://coolcoolcoolcool161-a11y.github.io/mea-game-poikatsu/',
   },
 ] as const;
 

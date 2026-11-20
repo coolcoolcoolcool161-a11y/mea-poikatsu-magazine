@@ -52,11 +52,11 @@ const title = 'メアのポイ活マガジン｜紹介コード・招待コー�
 <BaseLayout title={title} description={SITE.description} canonicalPath="/" jsonLd={jsonLd}>
   <div class="wrap">
     <div class="hero">
-      <img src="/images/hero.jpg" alt="ピンクの背景でメアがポイ活×招待コード×紹介系をお届けするバナー（一緒におトクをGETしよう♡）" width="1179" height="393" />
+      <img src="/mea-poikatsu-magazine/images/hero.jpg" alt="ピンクの背景でメアがポイ活×招待コード×紹介系をお届けするバナー（一緒におトクをGETしよう♡）" width="1179" height="393" />
     </div>
 
     <div class="pr-box">
-      このページは広告（PR）を含みます。掲載している紹介リンク・紹介コードを使って各サービスに登録し、所定の条件を満たすと、メア（紹介者）に、各サービスの運営会社から紹介報酬が支払われる場合があります。紹介報酬が発生しても、あなたの特典が減ったり、利用料金が上乗せされたりすることはないので安心してね。仕組みと対象範囲は<a href="/ad-disclosure/">「広告・紹介報酬に関する表記」</a>にまとめています。
+      このページは広告（PR）を含みます。掲載している紹介リンク・紹介コードを使って各サービスに登録し、所定の条件を満たすと、メア（紹介者）に、各サービスの運営会社から紹介報酬が支払われる場合があります。紹介報酬が発生しても、あなたの特典が減ったり、利用料金が上乗せされたりすることはないので安心してね。仕組みと対象範囲は<a href="/mea-poikatsu-magazine/ad-disclosure/">「広告・紹介報酬に関する表記」</a>にまとめています。
     </div>
 
     <p class="article-meta">2026年11月号／最終更新：2026年11月19日／特典額・条件は各サービスの紹介キャンペーン内容をもとに掲載しているよ♪ キャンペーンは予告なく変更・終了する場合があるから、登録前に公式ページもチェックしてね💡</p>
@@ -95,7 +95,7 @@ const title = 'メアのポイ活マガジン｜紹介コード・招待コー�
         {BENEFIT_RANKING.map((r) => (
           <tr>
             <td>{r.rank}</td>
-            <td><a href={`/articles/${r.slug}/`}>{r.service}</a></td>
+            <td><a href={`/mea-poikatsu-magazine/articles/${r.slug}/`}>{r.service}</a></td>
             <td>{r.benefit}</td>
             <td>{r.condition}</td>
           </tr>
@@ -110,7 +110,7 @@ const title = 'メアのポイ活マガジン｜紹介コード・招待コー�
         <p>{f.a}</p>
       </div>
     ))}
-    <p><a href="/faq/">よくある質問の一覧を見る →</a></p>
+    <p><a href="/mea-poikatsu-magazine/faq/">よくある質問の一覧を見る →</a></p>
 
     <h2 id="sisters">姉妹ブログ ─ SISTER BLOGS</h2>
     <p>同じ紹介コードを、違う切り口・違う使い方で紹介している姉妹ブログだよ📚 お好みのスタイルで読んでみてね♡</p>
@@ -123,7 +123,7 @@ const title = 'メアのポイ活マガジン｜紹介コード・招待コー�
     <h2>📂 カテゴリー</h2>
     <ul>
       {CATEGORIES.map((c) => (
-        <li><a href={`/categories/${c.slug}/`}>{c.name}</a>（{byCategory(c.slug).length}）</li>
+        <li><a href={`/mea-poikatsu-magazine/categories/${c.slug}/`}>{c.name}</a>（{byCategory(c.slug).length}）</li>
       ))}
     </ul>
 
@@ -132,7 +132,7 @@ const title = 'メアのポイ活マガジン｜紹介コード・招待コー�
 
     <h2>🎀 このポイ活マガジンについて</h2>
     <p>ポイ活大好きなメアが、実際に使っている紹介コードだけを雑誌の特集記事のようにまとめたマガジンだよ💖 特典額や条件が変わったら随時更新していくね♪</p>
-    <p><a href="/about/">運営者情報を見る →</a></p>
+    <p><a href="/mea-poikatsu-magazine/about/">運営者情報を見る →</a></p>
 
     <AdSlot />
   </div>

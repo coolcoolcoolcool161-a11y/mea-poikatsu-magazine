@@ -9,7 +9,7 @@ import { SITE } from '../data/site';
   canonicalPath="/search/"
 >
   <div class="wrap">
-    <p class="breadcrumb"><a href="/">トップ</a> › 検索</p>
+    <p class="breadcrumb"><a href="/mea-poikatsu-magazine/">トップ</a> › 検索</p>
     <h1>記事検索</h1>
     <p>サービス名・紹介コード・特典のキーワードで特集記事を検索できます。全19サービスが対象です。</p>
     <div class="search-box">
@@ -17,14 +17,14 @@ import { SITE } from '../data/site';
     </div>
     <p class="search-note" id="count">キーワードを入力してください。</p>
     <div class="card-grid" id="results"></div>
-    <p><a href="/">特集記事一覧トップへ戻る →</a></p>
+    <p><a href="/mea-poikatsu-magazine/">特集記事一覧トップへ戻る →</a></p>
   </div>
   <script>
     const input = document.getElementById('q');
     const results = document.getElementById('results');
     const count = document.getElementById('count');
     let index = [];
-    fetch('/search-index.json')
+    fetch('/mea-poikatsu-magazine/search-index.json')
       .then((r) => r.json())
       .then((d) => { index = d; });
     function render(list) {
