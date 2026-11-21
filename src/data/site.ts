@@ -6,7 +6,7 @@ export const SITE = {
   siteUrl: 'https://coolcoolcoolcool161-a11y.github.io/mea-poikatsu-magazine',
   description:
     'メアのポイ活マガジン｜ワラウ・ハピタス・モッピー・Freecash・TikTokなど全19サービスの紹介コード・招待コードを特集記事で読む。2026年11月号。',
-  dateModified: '2026-11-19',
+  dateModified: '2026-11-21',
   gaMeasurementId: 'G-8BB8V3DRW8',
   xAccount: 'https://x.com/pppppuririn',
   hubUrl:

@@ -23,7 +23,7 @@ Oliveアカウント紹介プログラムだよ。エントリー＋契約＋残
 
 ## 紹介特典・獲得条件
 
-- **紹介コードを入力してエントリー**（エントリーフォーム：https://www.smbc.co.jp/kojin/redirect/referral04/index.html）
+- **紹介コードを入力してエントリー**（エントリーフォーム：<https://www.smbc.co.jp/kojin/redirect/referral04/index.html>）
 - Oliveアカウントを契約の上、契約日の翌月末時点での残高が10,000円以上になるよう入金。
 - 条件達成でVポイント1,000円相当がもらえます。
 - Oliveアカウントの申込はこちら：https://www.smbc.co.jp/kojin/cmn/dl/smbcapp_01.html
