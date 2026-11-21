@@ -6,6 +6,7 @@ category: game-oripa
 benefit: "まず500円無料"
 benefitSub: "合計1,300円分楽しめる"
 code: "2BGZ325P"
+image: "/images/banner-pokekatsu.jpg"
 dateModified: "2026-11-19"
 rank: 9
 sortYen: 1300

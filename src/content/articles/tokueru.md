@@ -7,6 +7,7 @@ benefit: "5,000ポイント"
 benefitSub: "新規登録で"
 code: "9459GJ"
 url: "https://tokueru.jp/invitations/9459GJ"
+image: "/images/banner-tokueru.jpg"
 dateModified: "2026-11-19"
 points:
 - "登録時に招待コードを入力。18歳以上が対象。"

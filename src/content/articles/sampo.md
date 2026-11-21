@@ -7,6 +7,7 @@ benefit: "4,000pt"
 benefitSub: "新規登録で"
 code: "GTKZ6E"
 officialSite: "https://www.sampo.cash/ja"
+image: "/images/banner-sampo.jpg"
 dateModified: "2026-11-19"
 sortYen: 36
 points:
