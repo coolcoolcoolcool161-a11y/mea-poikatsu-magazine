@@ -22,6 +22,8 @@ image: "https://coolcoolcoolcool161-a11y.github.io/mea-poikatsu-blog/images/bann
 
 動画を見るだけの手軽さが魅力だけど、招待の受け取り方にはコツがあるの。Wi-FiをOFFにしてモバイル通信で招待URLを直接開いて進んでね💡
 
+![TikTokの招待特典（最大6,000円分）の案内画像](/images/tiktok-promo-mea.webp)
+
 ## 紹介特典・獲得条件
 
 - 新規登録で6,000円分の報酬獲得チャンス。
