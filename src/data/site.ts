@@ -82,7 +82,7 @@ export const BENEFIT_RANKING = [
   { rank: '10', service: 'メルカリ', benefit: '500円分', condition: '新規登録で招待コード入力', slug: 'mercari' },
   { rank: '11', service: 'PayPay', benefit: '300pt', condition: 'コード入力＋1,000円以上の支払い', slug: 'paypay' },
   { rank: '11', service: 'エアウォレット', benefit: 'Ponta 300pt', condition: '紹介リンクから新規登録', slug: 'airwallet' },
-  { rank: '13', service: 'オリくじ', benefit: '両方プレゼント', condition: '登録時に招待コード入力', slug: 'orikuji' },
+  { rank: '13', service: 'オリくじ', benefit: '500ptプレゼント', condition: '登録時に招待コード入力', slug: 'orikuji' },
 ] as const;
 
 // 姉妹ブログ（旧サイトの「姉妹ブログ」5件。旧muse.ai URL。2026-11-21にGitHub Pagesの新URLへ更新済み）
