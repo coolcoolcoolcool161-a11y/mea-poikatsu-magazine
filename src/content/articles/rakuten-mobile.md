@@ -14,6 +14,7 @@ points:
 - "ログイン後、翌々月末日までにプランを申し込み"
 - "利用開始"
 - "Rakuten Linkアプリから発信通話"
+image: "https://coolcoolcoolcool161-a11y.github.io/mea-poikatsu-blog/images/banner-rakuten.jpg"
 ---
 **ARTICLE 07｜通信**
 
