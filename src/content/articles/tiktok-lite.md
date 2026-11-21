@@ -13,6 +13,7 @@ rank: 8
 sortYen: 1400
 points:
 - "Wi-FiをOFFにしてモバイル通信でアクセスし、招待URLを直接開いて進んでください。"
+conditions: "新規登録と条件達成が対象です。登録時はWi-FiをOFFにしてモバイル通信で、招待URLを直接開いてください。"
 ---
 **ARTICLE 06｜SNS・動画**
 

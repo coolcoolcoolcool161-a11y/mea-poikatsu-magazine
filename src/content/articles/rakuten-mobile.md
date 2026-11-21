@@ -15,6 +15,7 @@ points:
 - "利用開始"
 - "Rakuten Linkアプリから発信通話"
 image: "https://coolcoolcoolcool161-a11y.github.io/mea-poikatsu-blog/images/banner-rakuten.jpg"
+conditions: "初めての申込が対象です。他社から乗り換え（MNP）なら13,000ポイント、乗り換え以外なら12,000ポイントです。"
 ---
 **ARTICLE 07｜通信**
 

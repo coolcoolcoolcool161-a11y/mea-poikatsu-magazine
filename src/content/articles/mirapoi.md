@@ -11,6 +11,7 @@ image: "/images/banner-mirapoi.jpg"
 dateModified: "2026-11-19"
 points:
 - "登録時100ポイント入会ボーナス。交換は300コインから。"
+conditions: "招待コードは登録時に入力してください。登録で100ptの入会ボーナスがあります。"
 ---
 **ARTICLE 17｜予想ポイ活**
 

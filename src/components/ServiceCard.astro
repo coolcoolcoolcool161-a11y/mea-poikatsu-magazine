@@ -55,6 +55,7 @@ const imgSize = data.image ? IMG_DIMS[data.image] : undefined;
   )}
   {showBody && <Content />}
   <p class="original-link"><a href={`/mea-poikatsu-magazine/articles/${slug}/`}>紹介文（原文）・条件の全文を見る →</a></p>
+  {data.conditions && <p class="conditions">{data.conditions}</p>}
   {data.url ? (
     <a class="register-btn" href={data.url} target="_blank" rel="sponsored noopener" data-service={slug} data-position={ctaPosition}>
       無料で登録する

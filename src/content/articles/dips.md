@@ -11,6 +11,7 @@ image: "/images/banner-dips.jpg"
 dateModified: "2026-11-19"
 points:
 - "登録から24時間以内にメア特別コードを入力。"
+conditions: "招待コードは登録から24時間以内に入力してください。入力で水1,000gと高級肥料10個がもらえます。"
 ---
 **ARTICLE 19｜育成ゲーム**
 

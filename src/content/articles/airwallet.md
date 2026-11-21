@@ -13,6 +13,7 @@ rank: 11
 sortYen: 300
 points:
 - "紹介リンクから新規登録。"
+conditions: "紹介リンクから新規登録してください。新規登録でPonta 300ptがもらえます。"
 ---
 **ARTICLE 11｜決済・送金**
 

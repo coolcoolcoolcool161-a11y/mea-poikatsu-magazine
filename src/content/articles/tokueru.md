@@ -11,6 +11,7 @@ image: "/images/banner-tokueru.jpg"
 dateModified: "2026-11-19"
 points:
 - "登録時に招待コードを入力。18歳以上が対象。"
+conditions: "招待コードの入力で5,000ポイントがもらえます。特典の適用条件は登録画面でご確認ください。"
 ---
 **ARTICLE 18｜歩数ポイ活**
 
