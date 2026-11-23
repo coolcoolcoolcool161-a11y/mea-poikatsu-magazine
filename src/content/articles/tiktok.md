@@ -12,7 +12,7 @@ rank: 3
 sortYen: 6000
 points:
 - "Wi-FiをOFFにしてモバイル通信でアクセスし、招待URLを直接開いて進んでください。"
-image: "https://coolcoolcoolcool161-a11y.github.io/mea-poikatsu-blog/images/banner-tiktok.jpg"
+image: "https://mea-poikatsu.github.io/mea-poikatsu-blog/images/banner-tiktok.jpg"
 conditions: "新規登録と条件達成が対象です。登録時はWi-FiをOFFにしてモバイル通信で、招待URLを直接開いてください。"
 ---
 **ARTICLE 05｜SNS・動画**
