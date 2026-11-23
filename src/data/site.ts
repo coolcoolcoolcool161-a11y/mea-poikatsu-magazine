@@ -78,7 +78,7 @@ export const BENEFIT_RANKING = [
   { rank: '6', service: '三井住友銀行 Olive', benefit: 'Vポイント1,000円相当', condition: 'エントリー＋契約＋翌月末残高10,000円以上', slug: 'olive' },
   { rank: '7', service: 'Freecash', benefit: '初回DLで1,430円分', condition: '招待コード入力＋初回DL', slug: 'freecash' },
   { rank: '8', service: 'TikTok Lite', benefit: '1,400円分', condition: '新規登録（モバイル通信で招待URLを開く）', slug: 'tiktok-lite' },
-  { rank: '9', service: 'ポケカツ', benefit: '500円無料〜', condition: '新規登録で招待コード入力', slug: 'pokekatsu' },
+  { rank: '9', service: 'ポケカツ', benefit: '初回チャージ90%OFF', condition: '新規登録で招待コード入力', slug: 'pokekatsu' },
   { rank: '10', service: 'メルカリ', benefit: '500円分', condition: '新規登録で招待コード入力', slug: 'mercari' },
   { rank: '11', service: 'PayPay', benefit: '300pt', condition: 'コード入力＋1,000円以上の支払い', slug: 'paypay' },
   { rank: '11', service: 'エアウォレット', benefit: 'Ponta 300pt', condition: '紹介リンクから新規登録', slug: 'airwallet' },
