@@ -43,11 +43,11 @@ export const CATEGORY_NAMES: Record<string, string> = Object.fromEntries(
 // 旧サイトの特集記事の並び（ARTICLE 01〜19）。トップページの初期表示に使う。
 export const MAGAZINE_ORDER = [
   'freecash',
-  'moppy',
   'warau',
-  'hapitas',
   'tiktok',
   'tiktok-lite',
+  'moppy',
+  'hapitas',
   'rakuten-mobile',
   'olive',
   'mercari',
