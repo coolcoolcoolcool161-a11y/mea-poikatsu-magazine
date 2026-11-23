@@ -19,7 +19,7 @@
 
 - コード・紹介URL・特典額・条件は `src/content/articles/*.md` のfrontmatterと本文に記載。変更するときは `~/workspace/*-referral-post.txt` と台帳 `~/workspace/site-migration-inventory.md` §4.1 で照合すること。
 - ワラウのレートは1pt＝1円（公式確認済み）。紹介URLは `/bEs5`（コード `bEs7` と末尾が違うのが正しい）。公式バナーHTMLの `/boav` は使わないこと。
-- Freecashの招待された側は約1,430円相当（「約1,500円分」は誤りで使わないこと）。
+- Freecashは招待コード入力後、初回DLで1,430円分ゲット（旧表記「招待された側は初回DLで1,430円分」は誤りで使わないこと）。
 - トクエルの記事ファイル名は `tokueru.md`（公式ドメイン tokueru.jp・既存4サイトのスラッグと一致）。
 
 ## 画像について
