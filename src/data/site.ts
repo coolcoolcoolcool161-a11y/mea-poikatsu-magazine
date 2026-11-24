@@ -1,11 +1,11 @@
 // サイト共通の設定。GA4測定IDはユーザーから提供され次第ここに入れる。
 // 空のままならGA4スクリプトは出力されない。
 export const SITE = {
-  name: 'ポイ活マガジン',
+  name: 'ポイレーダー',
   operator: 'メア',
   siteUrl: 'https://mea-poikatsu.github.io/mea-poikatsu-magazine',
   description:
-    'メアのポイ活マガジン｜ワラウ・ハピタス・モッピー・Freecash・TikTokなど全19サービスの紹介コード・招待コードを特集記事で読む。2026年11月号。',
+    'メアのポイレーダー｜ワラウ・ハピタス・モッピー・Freecash・TikTokなど全19サービスの紹介コード・招待コードを特集記事で読む。2026年11月号。',
   dateModified: '2026-11-21',
   gaMeasurementId: 'G-8BB8V3DRW8',
   xAccount: 'https://x.com/pppppuririn',
@@ -16,7 +16,7 @@ export const SITE = {
 // Astro 5ではcontent collectionのentry.idに拡張子（.md）が付くため、URL用スラッグに変換する
 export const slugOf = (id: string) => id.replace(/\.md$/, '');
 
-// 旧サイト（ポイ活マガジン v16）のARTICLEカテゴリ分け
+// 旧サイト（ポイレーダー v16）のARTICLEカテゴリ分け
 export const CATEGORIES = [
   { slug: 'point-sites', name: 'ポイントサイト' },
   { slug: 'sns-video', name: 'SNS・動画' },
@@ -88,27 +88,27 @@ export const BENEFIT_RANKING = [
 // 姉妹ブログ（旧サイトの「姉妹ブログ」5件。旧muse.ai URL。2026-11-21にGitHub Pagesの新URLへ更新済み）
 export const SISTER_BLOGS = [
   {
-    name: 'ポイ活ブログ',
+    name: 'ポイ活レビュー帖',
     note: '総合版だよ。特選バナーとカテゴリ別カードで全サービスを網羅するメインブログなの♪',
     url: 'https://mea-poikatsu.github.io/mea-poikatsu-blog/',
   },
   {
-    name: 'おすすめ紹介コード',
+    name: 'ポイランク',
     note: 'メアのおすすめ順に並べた紹介コードを比較しながら選べるブログだよ🏆',
     url: 'https://mea-poikatsu.github.io/mea-ranking/',
   },
   {
-    name: 'ポイ活コード検索',
+    name: 'コードサーチ',
     note: 'サービス名で検索して、紹介コードだけを素早く見つけられる検索特化ブログだよ🔍',
     url: 'https://mea-poikatsu.github.io/mea-code-search/',
   },
   {
-    name: 'かんたん紹介コード案内',
+    name: 'ポイ活のトリセツ',
     note: '初めての人向けに、手順をかんたんに案内するやさしいブログだよ🌸',
     url: 'https://mea-poikatsu.github.io/mea-kantan-guide/',
   },
   {
-    name: 'ゲームポイ活ブログ',
+    name: 'ポイゲークエスト',
     note: 'Freecashなどゲームで貯めるポイ活を中心に紹介するゲーム特化ブログだよ🎮',
     url: 'https://mea-poikatsu.github.io/mea-game-poikatsu/',
   },
@@ -129,7 +129,7 @@ export const FAQS = [
   },
   {
     q: '姉妹ブログとの違いは何ですか？',
-    a: '載せている紹介コードと特典は同じだよ。ポイ活マガジンは雑誌の特集記事のように読み物として楽しめるレイアウトになっているの📖 おすすめ順で比較したい方は「おすすめ紹介コード」、コードだけ素早く探したい方は「ポイ活コード検索」も見てみてね。',
+    a: '載せている紹介コードと特典は同じだよ。ポイレーダーは雑誌の特集記事のように読み物として楽しめるレイアウトになっているの📖 おすすめ順で比較したい方は「ポイランク」、コードだけ素早く探したい方は「コードサーチ」も見てみてね。',
   },
   {
     q: '紹介リンクや紹介コードを使うと、メアに報酬が入るのですか？',
