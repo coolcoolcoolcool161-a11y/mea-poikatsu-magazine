@@ -7,7 +7,7 @@ benefit: "最大2,500pt"
 benefitSub: "紹介登録で初回ボーナス増額"
 code: "bEs7"
 url: "https://www.warau.jp/friend/reg/bEs5"
-image: "/images/banner-official-warau.png"
+image: "/images/banner-warau.jpg"
 imageAlt: "ワラウ公式リンクバナー"
 dateModified: "2026-11-19"
 rank: 4

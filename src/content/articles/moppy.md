@@ -7,7 +7,7 @@ benefit: "最大7,000P"
 benefitSub: "新規登録＆広告利用"
 code: "7xaGA123"
 url: "https://pc.moppy.jp/entry/invite.php?invite=7xaGA123"
-image: "/images/banner-official-moppy.jpg"
+image: "/images/banner-moppy.jpg"
 imageAlt: "モッピー公式リンクバナー"
 dateModified: "2026-11-19"
 rank: 2
