@@ -1,21 +1,26 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ServiceCard from '../components/ServiceCard.astro';
+import CatalogCard from '../components/CatalogCard.astro';
 import AdSlot from '../components/AdSlot.astro';
-import { SITE, CATEGORIES, CATEGORY_NAMES, MAGAZINE_ORDER, ARTICLE_NUMBERS, BENEFIT_RANKING, FAQS, SISTER_BLOGS, slugOf } from '../data/site';
+import { SITE, CATEGORIES, MAGAZINE_ORDER, FAQS, SISTER_BLOGS, slugOf } from '../data/site';
+import { SERVICE_FACTS, LATEST_VERIFIED, deadlineNews, freshNews } from '../data/services';
 
 const articles = await getCollection('articles');
-const bySlug = new Map(articles.map((a) => [slugOf(a.id), a]));
-// 旧サイトの特集記事の並び（ARTICLE 01〜19）に並べる
-const ordered = MAGAZINE_ORDER.map((s) => bySlug.get(s)!).filter(Boolean);
-const cover = bySlug.get('freecash')!;
+const categoryBySlug = new Map(articles.map((a) => [slugOf(a.id), a.data.category]));
 const byCategory = (slug: string) => articles.filter((a) => a.data.category === slug);
 
-const itemList = ordered.map((a, i) => ({
+// カタログの並びはおすすめ優先度（MAGAZINE_ORDER＝Freecash→ワラウ→TikTok系→モッピー→ハピタス→その他）
+const catalog = MAGAZINE_ORDER.map((slug) => SERVICE_FACTS[slug]).filter(Boolean);
+const catalogCategories = CATEGORIES.filter((c) => byCategory(c.slug).length > 0);
+
+const newsDeadlines = deadlineNews();
+const newsFresh = freshNews();
+
+const itemList = catalog.map((f, i) => ({
   '@type': 'ListItem',
   position: i + 1,
-  name: `ARTICLE ${ARTICLE_NUMBERS[slugOf(a.id)]} ${a.data.service} ${a.data.code ? `紹介コード ${a.data.code}` : ''} ${a.data.benefit}`,
+  name: `${f.name} ${f.code ? `紹介コード ${f.code}` : ''} ${f.benefit}`,
 }));
 
 const jsonLd = {
@@ -23,12 +28,12 @@ const jsonLd = {
   '@graph': [
     {
       '@type': 'WebPage',
-      name: 'メアのポイレーダー｜紹介コード・招待コード特集号',
+      name: 'ポイレーダー｜紹介コード・招待コードの案件カタログ＋速報',
       description: SITE.description,
       inLanguage: 'ja',
       dateModified: SITE.dateModified,
     },
-    { '@type': 'ItemList', name: 'ポイレーダー 特集記事一覧', numberOfItems: 19, itemListElement: itemList },
+    { '@type': 'ItemList', name: 'ポイレーダー 案件カタログ', numberOfItems: catalog.length, itemListElement: itemList },
     {
       '@type': 'FAQPage',
       mainEntity: FAQS.map((f) => ({
@@ -46,65 +51,73 @@ const jsonLd = {
   ],
 };
 
-const title = 'メアのポイレーダー｜紹介コード・招待コード特集号';
+const title = 'ポイレーダー｜紹介コード・招待コードの案件カタログ＋速報';
 ---
 
 <BaseLayout title={title} description={SITE.description} canonicalPath="/" jsonLd={jsonLd}>
   <div class="wrap">
-    <div class="hero">
-      <img src="/mea-poikatsu-magazine/images/hero.jpg" alt="ピンクの背景でメアがポイ活×招待コード×紹介系をお届けするバナー（一緒におトクをGETしよう♡）" width="1179" height="393"  fetchpriority="high"/>
+    <div class="radar-hero">
+      <div class="radar-rings" aria-hidden="true"><span></span><span></span><span></span></div>
+      <img src="/mea-poikatsu-magazine/images/hero.jpg" alt="ピンクの背景でメアがポイ活×招待コード×紹介系をお届けするバナー（一緒におトクをGETしよう♡）" width="1179" height="393" fetchpriority="high" />
     </div>
-<p class="pace-banner">🌱1ヶ月 約5万円ペースで貯まるよ♡</p>
-<style>
-  .pace-banner { margin: 14px 0 6px; padding: 12px 16px; border-radius: 999px; background: linear-gradient(90deg, #d81b60, #ad1457); color: #fff; font-weight: 800; font-size: clamp(1.05rem, 3.6vw, 1.45rem); text-align: center; letter-spacing: 0.02em; box-shadow: 0 4px 14px rgba(216, 27, 96, 0.35); }
-</style>
-<div class="pr-box">
+    <p class="pace-banner">🌱1ヶ月 約5万円ペースで貯まるよ♡</p>
+    <style>
+      .pace-banner { margin: 14px 0 6px; padding: 12px 16px; border-radius: 999px; background: linear-gradient(90deg, #d81b60, #ad1457); color: #fff; font-weight: 800; font-size: clamp(1.05rem, 3.6vw, 1.45rem); text-align: center; letter-spacing: 0.02em; box-shadow: 0 4px 14px rgba(216, 27, 96, 0.35); }
+    </style>
+    <div class="pr-box">
       このページは広告（PR）を含みます。掲載している紹介リンク・紹介コードを使って各サービスに登録し、所定の条件を満たすと、メア（紹介者）に、各サービスの運営会社から紹介報酬が支払われる場合があります。紹介報酬が発生しても、あなたの特典が減ったり、利用料金が上乗せされたりすることはないので安心してね。仕組みと対象範囲は<a href="/mea-poikatsu-magazine/ad-disclosure/">「広告・紹介報酬に関する表記」</a>にまとめています。
     </div>
 
-    <p class="article-meta">2026年11月号／最終更新：2026年11月19日／特典額・条件は各サービスの紹介キャンペーン内容をもとに掲載しているよ♪ キャンペーンは予告なく変更・終了する場合があるから、登録前に公式ページもチェックしてね💡</p>
-
-    <h1>メアのポイレーダー｜紹介コード・招待コード特集号💖</h1>
+    <h1>ポイレーダー｜紹介コード案件カタログ＋速報📡</h1>
     <p class="lead">
-      こんにちは、メアです💖 ポイ活大好きなメアが、お得な紹介コードをぎゅっと集めたよ🎀 一緒におトクをGETしよっ✨ 今号は<strong>特集：紹介コードで始めるポイ活 全19サービス</strong>。紹介コードをひとつ使うだけで、登録特典がぐっと増える19サービスを総力特集したよ✨
+      こんにちは、メアです💖 ポイレーダーは、お得な紹介コードの案件をレーダーみたいにキャッチして、<strong>バッジ付きのカタログ</strong>で全19サービスを一覧できるページだよ🎀 「終了間近」「NEW」のバッジと速報をチェックして、もらい忘れのないようにしてね✨
     </p>
+    <p class="article-meta">掲載情報の最終確認：{LATEST_VERIFIED}／特典額・条件は各サービスの紹介キャンペーン内容をもとに掲載しているよ♪ キャンペーンは予告なく変更・終了する場合があるから、登録前に公式ページもチェックしてね💡</p>
+
+    <section class="news-strip" id="news" aria-label="速報">
+      <h2 class="news-title">⚡ 速報</h2>
+      <ul class="news-list">
+        {newsDeadlines.map((n) => (
+          <li class={n.daysLeft !== null && n.daysLeft <= 7 ? 'news-item news-urgent' : 'news-item'}>
+            <a href={`/mea-poikatsu-magazine/articles/${n.facts.slug}/`}>
+              ⏰ {n.facts.name}：{n.facts.deadline}{n.daysLeft !== null && <>（あと{n.daysLeft}日）</>}
+            </a>
+          </li>
+        ))}
+        {newsFresh.map((f) => (
+          <li class="news-item">
+            <a href={`/mea-poikatsu-magazine/articles/${f.slug}/`}>
+              ✨ {f.name}：{f.benefit}（{f.verified}に確認）
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
 
     <AdSlot position="top" />
 
-    <h2 id="cover">💖 表紙特集 ─ COVER STORY</h2>
-    <p>いま一番アツい「Freecash」をメアが徹底解剖しちゃうよ✨ ゲームで遊んで<strong>初回DLで1,430円分</strong>🎮</p>
-    <ServiceCard article={cover} showBody={true} />
-
-    <h2 id="articles">特集記事一覧 ─ FEATURE ARTICLES</h2>
-    <p>全19サービスを1記事ずつ紹介していくよ💕 気になる記事はコードをコピーして、そのまま登録しちゃってね♪ 各記事の「原文を読む」では、紹介文そのものも載せているよ。</p>
-    <div class="card-grid">
-      {ordered.map((a) => (
-        <div class="magazine-item">
-          <p class="article-no">ARTICLE {ARTICLE_NUMBERS[slugOf(a.id)]}｜{CATEGORY_NAMES[a.data.category] ?? a.data.category}</p>
-          <ServiceCard article={a} />
-        </div>
-      ))}
-    </div>
+    <section id="catalog">
+      <h2>📡 案件カタログ ─ 全{catalog.length}サービス</h2>
+      <p>バッジの意味：<span class="badge badge-ending">終了間近</span>＝期限まで7日以内／<span class="badge badge-new">NEW</span>＝いちばん新しく確認できた案件。バッジとカテゴリで絞り込めるよ♪</p>
+      <div class="filter-bar" role="group" aria-label="カタログの絞り込み">
+        <button type="button" class="filter-chip is-active" data-filter-type="all" data-filter-value="">すべて</button>
+        <button type="button" class="filter-chip" data-filter-type="badge" data-filter-value="ending">終了間近</button>
+        <button type="button" class="filter-chip" data-filter-type="badge" data-filter-value="new">NEW</button>
+        <button type="button" class="filter-chip" data-filter-type="code" data-filter-value="has">コードあり</button>
+        {catalogCategories.map((c) => (
+          <button type="button" class="filter-chip" data-filter-type="category" data-filter-value={c.slug}>{c.name}</button>
+        ))}
+      </div>
+      <p class="filter-count" aria-live="polite">{catalog.length}件中 {catalog.length}件を表示</p>
+      <div class="catalog-grid">
+        {catalog.map((f) => (
+          <CatalogCard facts={f} category={categoryBySlug.get(f.slug) ?? ''} />
+        ))}
+      </div>
+      <p class="filter-empty" hidden>この条件に合う案件は今はないよ。他の条件で探してみてね。</p>
+    </section>
 
     <AdSlot position="middle" />
-
-    <h2 id="ranking">特典ランキング ─ BENEFIT RANKING</h2>
-    <p>特典額の大きい順に並べた早見表だよ🏆 詳しい条件は各記事で確認してね♪</p>
-    <table class="ranking-table">
-      <thead>
-        <tr><th>順位</th><th>サービス</th><th>特典</th><th>主な条件</th></tr>
-      </thead>
-      <tbody>
-        {BENEFIT_RANKING.map((r) => (
-          <tr>
-            <td>{r.rank}</td>
-            <td><a href={`/mea-poikatsu-magazine/articles/${r.slug}/`}>{r.service}</a></td>
-            <td>{r.benefit}</td>
-            <td>{r.condition}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
 
     <h2 id="faq">よくある質問 ─ FAQ</h2>
     {FAQS.map((f) => (
@@ -134,9 +147,37 @@ const title = 'メアのポイレーダー｜紹介コード・招待コード�
     <p><a href={SITE.hubUrl} target="_blank" rel="noopener">ポイ活ポータル（トップページ）</a> — ホームページ・ブログ・掲示板・note・Xなど、メアの媒体はここからたどれます♪</p>
 
     <h2>🎀 このポイレーダーについて</h2>
-    <p>ポイ活大好きなメアが、実際に使っている紹介コードだけを雑誌の特集記事のようにまとめたマガジンだよ💖 特典額や条件が変わったら随時更新していくね♪</p>
+    <p>ポイ活大好きなメアが、実際に使っている紹介コードだけを、案件カタログと速報でまとめているよ💖 特典額や条件が変わったら随時更新していくね♪</p>
     <p><a href="/mea-poikatsu-magazine/about/">運営者情報を見る →</a></p>
 
     <AdSlot position="bottom" />
   </div>
+
+  <script>
+    // 案件カタログの絞り込み（バッジ／コード有無／カテゴリ）。クライアント側で表示を切り替えるだけ。
+    const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('.filter-chip'));
+    const cards = Array.from(document.querySelectorAll<HTMLElement>('.catalog-card'));
+    const countEl = document.querySelector('.filter-count');
+    const emptyEl = document.querySelector('.filter-empty');
+    const applyFilter = (type: string, value: string) => {
+      let shown = 0;
+      cards.forEach((card) => {
+        let ok = true;
+        if (type === 'badge') ok = (card.getAttribute('data-badges') || '').split(/\s+/).includes(value);
+        else if (type === 'category') ok = card.getAttribute('data-category') === value;
+        else if (type === 'code') ok = !card.querySelector('.catalog-code-none');
+        card.style.display = ok ? '' : 'none';
+        if (ok) shown += 1;
+      });
+      if (countEl) countEl.textContent = `${cards.length}件中 ${shown}件を表示`;
+      if (emptyEl) (emptyEl as HTMLElement).hidden = shown !== 0;
+    };
+    chips.forEach((chip) => {
+      chip.addEventListener('click', () => {
+        chips.forEach((c) => c.classList.remove('is-active'));
+        chip.classList.add('is-active');
+        applyFilter(chip.getAttribute('data-filter-type') || 'all', chip.getAttribute('data-filter-value') || '');
+      });
+    });
+  </script>
 </BaseLayout>

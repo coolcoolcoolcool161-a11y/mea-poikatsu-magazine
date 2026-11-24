@@ -1,0 +1,45 @@
+---
+// S05 ポイレーダーのトップ「バッジ駆動カタログ」専用カード。
+// 表示する事実（特典・コード・期限・確認日）はすべて正本データ（src/data/services.ts）由来。
+// バッジは services.ts の機械判定（終了間近／NEW）のみ。根拠のないバッジは付けない。
+import type { ServiceFacts } from '../data/services';
+import { badgesOf, deadlineDateOf } from '../data/services';
+import { CATEGORY_NAMES } from '../data/site';
+
+interface Props {
+  facts: ServiceFacts;
+  category: string;
+}
+
+const { facts, category } = Astro.props;
+const badges = badgesOf(facts);
+const deadlineDate = deadlineDateOf(facts);
+const articleUrl = `/mea-poikatsu-magazine/articles/${facts.slug}/`;
+const badgeKinds = badges.map((b) => b.kind).join(' ');
+---
+
+<article class="catalog-card" data-category={category} data-badges={badgeKinds} data-service={facts.slug}>
+  <div class="catalog-badges">
+    {badges.map((b) => (
+      <span class={`badge badge-${b.kind}`}>{b.label}</span>
+    ))}
+    <span class="badge badge-category">{CATEGORY_NAMES[category] ?? category}</span>
+  </div>
+  <h3 class="catalog-name"><a href={articleUrl}>{facts.name}</a></h3>
+  <p class="catalog-benefit"><span class="catalog-benefit-label">登録者特典</span>{facts.benefit}</p>
+  {facts.code ? (
+    <p class="catalog-code">紹介コード <code>{facts.code}</code>{facts.friendCode && <> ＋ 友達招待コード <code>{facts.friendCode}</code></>}</p>
+  ) : (
+    <p class="catalog-code catalog-code-none">紹介コードなし（リンク型）</p>
+  )}
+  <p class="catalog-meta">
+    {deadlineDate && <span class="catalog-deadline">期限：{deadlineDate}</span>}
+    <span>最終確認：{facts.verified}</span>
+  </p>
+  <div class="catalog-actions">
+    <a class="catalog-detail" href={articleUrl}>特典・条件・コードを見る →</a>
+    {facts.url && (
+      <a class="catalog-register" href={facts.url} target="_blank" rel="sponsored noopener" data-ref-service={facts.slug} data-ref-placement="catalog" data-service={facts.slug} data-position="catalog">登録する</a>
+    )}
+  </div>
+</article>

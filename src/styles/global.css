@@ -461,3 +461,61 @@ tbody tr:hover { background: #fff0f5; }
    本文 = LINE Seed JP（Webフォント）/ 見出し = 丸ゴシック系（S07のみ角ゴシック） */
 h1, h2, h3, .brand { font-family: var(--font-heading); }
 h1, .brand { font-weight: 900; }
+
+/* === S05再構築（2026-11-25）：バッジ駆動カタログ＋速報 === */
+/* レーダーヒーロー：同心円リング＋スイープの装飾（デザイン強化版の要素） */
+.radar-hero { position: relative; border-radius: var(--radius-md); overflow: hidden; }
+.radar-hero img { display: block; width: 100%; height: auto; }
+.radar-rings { position: absolute; top: -70px; right: -70px; width: 220px; height: 220px; pointer-events: none; }
+.radar-rings span { position: absolute; inset: 0; border: 2px solid rgba(255, 255, 255, 0.55); border-radius: 50%; }
+.radar-rings span:nth-child(2) { inset: 34px; }
+.radar-rings span:nth-child(3) { inset: 68px; background: rgba(255, 255, 255, 0.18); }
+.radar-rings::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(from 0deg, rgba(255, 255, 255, 0.5), transparent 70deg); animation: radar-sweep 5s linear infinite; }
+@keyframes radar-sweep { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .radar-rings::after { animation: none; } }
+
+/* 速報ストリップ */
+.news-strip { margin: var(--space-4) 0; padding: var(--space-3) var(--space-4); background: var(--color-notice-bg); border: 1px solid var(--color-notice-line); border-radius: var(--radius-md); }
+.news-title { margin: 0 0 var(--space-2); font-size: var(--text-h3); }
+.news-list { margin: 0; padding: 0; list-style: none; }
+.news-item { padding: 6px 0; border-top: 1px dashed var(--color-notice-line); font-weight: 700; }
+.news-item:first-child { border-top: none; }
+.news-item a { color: var(--color-text); text-decoration: none; }
+.news-item a:hover { text-decoration: underline; }
+.news-urgent a { color: var(--color-error-text); }
+
+/* バッジ（カタログ／カード共通） */
+.badge { display: inline-block; padding: 2px 10px; border-radius: var(--radius-pill); font-size: var(--text-xs); font-weight: 800; line-height: 1.6; vertical-align: middle; }
+.badge-ending { background: var(--color-error-bg); color: var(--color-error-text); border: 1px solid var(--color-error-text); }
+.badge-new { background: linear-gradient(90deg, #d81b60, #ad1457); color: #fff; }
+.badge-category { background: var(--color-primary-soft); color: var(--color-primary-strong); border: 1px solid var(--color-primary-line); font-weight: 700; }
+
+/* 絞り込み */
+.filter-bar { display: flex; flex-wrap: wrap; gap: var(--space-2); margin: var(--space-3) 0 var(--space-2); }
+.filter-chip { padding: 6px 14px; border-radius: var(--radius-pill); border: 1px solid var(--color-primary-line); background: var(--color-surface); color: var(--color-primary-strong); font: inherit; font-size: var(--text-sm); font-weight: 700; cursor: pointer; }
+.filter-chip:hover { background: var(--color-primary-soft); }
+.filter-chip.is-active { background: var(--color-primary-strong); border-color: var(--color-primary-strong); color: #fff; }
+.filter-chip:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.filter-count { margin: 0 0 var(--space-3); color: var(--color-text-muted); font-size: var(--text-sm); }
+.filter-empty { padding: var(--space-4); text-align: center; color: var(--color-text-muted); }
+
+/* 案件カタログ */
+.catalog-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-4); }
+@media (min-width: 640px) { .catalog-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1024px) { .catalog-grid { grid-template-columns: 1fr 1fr 1fr; } }
+.catalog-card { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4); background: var(--color-surface); border: var(--border-card); border-radius: var(--radius-md); box-shadow: var(--shadow-card); }
+.catalog-badges { display: flex; flex-wrap: wrap; gap: 6px; }
+.catalog-name { margin: 0; font-size: var(--text-h3); }
+.catalog-name a { color: var(--color-text); text-decoration: none; }
+.catalog-name a:hover { color: var(--color-primary-strong); text-decoration: underline; }
+.catalog-benefit { margin: 0; padding: 8px 12px; background: var(--color-benefit-bg); border-radius: var(--radius-sm); color: var(--color-benefit-text); font-weight: 800; }
+.catalog-benefit-label { display: block; font-size: var(--text-xs); font-weight: 700; color: var(--color-text-muted); }
+.catalog-code { margin: 0; font-size: var(--text-sm); }
+.catalog-code code { font-family: var(--font-code); font-weight: 700; background: var(--color-primary-soft); padding: 1px 6px; border-radius: 4px; }
+.catalog-code-none { color: var(--color-text-muted); }
+.catalog-meta { margin: 0; display: flex; flex-wrap: wrap; gap: 6px 12px; font-size: var(--text-xs); color: var(--color-text-muted); }
+.catalog-deadline { color: var(--color-error-text); font-weight: 700; }
+.catalog-actions { margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); }
+.catalog-detail { font-weight: 700; color: var(--color-primary-strong); }
+.catalog-register { margin-left: auto; padding: 8px 18px; border-radius: var(--radius-pill); background: linear-gradient(90deg, #d81b60, #ad1457); color: #fff; font-weight: 800; text-decoration: none; }
+.catalog-register:hover { opacity: 0.9; }
