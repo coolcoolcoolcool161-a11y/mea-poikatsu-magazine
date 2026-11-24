@@ -81,7 +81,7 @@ export const BENEFIT_RANKING = [
   { rank: '9', service: 'ポケカツ', benefit: '初回チャージ90%OFF', condition: '新規登録で招待コード入力', slug: 'pokekatsu' },
   { rank: '10', service: 'メルカリ', benefit: '500円分', condition: '新規登録で招待コード入力', slug: 'mercari' },
   { rank: '11', service: 'PayPay', benefit: '300pt', condition: 'コード入力＋1,000円以上の支払い', slug: 'paypay' },
-  { rank: '11', service: 'エアウォレット', benefit: 'Ponta 300pt', condition: '紹介リンクから新規登録', slug: 'airwallet' },
+  { rank: '11', service: 'エアウォレット', benefit: '300円分', condition: '招待コード入力＋新規登録', slug: 'airwallet' },
   { rank: '13', service: 'オリくじ', benefit: '500ptプレゼント', condition: '登録時に招待コード入力', slug: 'orikuji' },
 ] as const;
 

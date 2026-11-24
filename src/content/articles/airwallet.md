@@ -1,19 +1,19 @@
 ---
-title: "エアウォレット ─ 送金手数料無料の味方｜Ponta 300ポイント"
-description: "銀行口座間の送金が手数料無料でできる便利なアプリ。紹介リンクから新規登録でPontaポイント300ポイント。"
+title: "エアウォレット ─ 送金手数料無料の味方｜300円分"
+description: "銀行口座間の送金が手数料無料でできる便利なアプリ。紹介リンクから新規登録でCOIN+残高300円分。"
 service: "エアウォレット"
 category: payment-transfer
-benefit: "Ponta 300ポイント"
+benefit: "300円分"
 benefitSub: "新規登録プレゼント"
-code: "qpgtg29"
-url: "https://point.recruit.co.jp/recruitid/doc/campaign/aw/airwallet202610_invitation/W7nd8/?vos=wercdSGCbnrlink20250121621"
+code: "6nzih9k"
+url: "https://coinplus.go.link/jH372"
 image: "/images/banner-airwallet.jpg"
-dateModified: "2026-11-19"
+dateModified: "2026-11-24"
 rank: 11
 sortYen: 300
 points:
 - "紹介リンクから新規登録。"
-conditions: "紹介リンクから新規登録してください。新規登録でPonta 300ptがもらえます。"
+conditions: "招待コードを入力して新規登録し、リクルートID連携・本人確認を完了するとCOIN+残高300円分がもらえます。"
 ---
 **ARTICLE 11｜決済・送金**
 
@@ -21,11 +21,11 @@ conditions: "紹介リンクから新規登録してください。新規登録�
 
 銀行口座間の送金が手数料無料でできる便利なアプリだよ♪ 登録は無料で、スマホひとつで簡単に利用できるの。
 
-紹介リンクから新規登録するとPontaポイント300ポイントがもらえるよ。送金手数料を節約しながら、ポイ活もできちゃう一石二鳥のアプリだよ💸
+招待コードを入力して新規登録するとCOIN+残高300円分がもらえるよ。送金手数料を節約しながら、ポイ活もできちゃう一石二鳥のアプリだよ💸
 
 ## 紹介特典・獲得条件
 
-- 紹介リンクから新規登録するとPontaポイント300ポイントがもらえます。
+- 招待コードを入力して新規登録するとCOIN+残高300円分がもらえます。
 - 登録は無料。銀行口座間の送金が手数料無料でできます。
 
 ## 紹介文（原文）
@@ -36,8 +36,8 @@ conditions: "紹介リンクから新規登録してください。新規登録�
 > ・登録は無料で始められる！
 > ・口座間の送金が手数料無料！
 > ・スマホひとつで簡単に利用できる便利なアプリ♪
-> 🎁 今なら下記の紹介リンクから登録するとPontaポイント300ポイント がもらえます！
-> https://point.recruit.co.jp/recruitid/doc/campaign/aw/airwallet202610_invitation/W7nd8/?vos=wercdSGCbnrlink20250121621
+> 🎁 今なら下記の紹介リンクから登録するとCOIN+残高300円分 がもらえます！
+> https://coinplus.go.link/jH372
 > 難しい操作は必要ないので、初めての方もぜひこの機会にチェックしてみてください✨
 
 ※紹介リンク・紹介コード経由で登録し、所定の条件を満たすと、メア（紹介者）に紹介報酬が支払われる場合があります。あなたの特典が減ることはありません。
